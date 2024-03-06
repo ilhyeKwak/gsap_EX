@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
   luxy.init({
     wrapperSpeed: 0.9,
   });
+
   // ========= GSAP EFFECT =========
   gsap.registerPlugin(ScrollTrigger); // gsap scrollTrigger 플러그인 등록
 
@@ -44,6 +45,11 @@ document.addEventListener('DOMContentLoaded', function () {
       start: 'top top', // 첫번째는 요소의 시작 위치, 두번째는 화면의 시작 위치
       scrub: 1.8, // 스크롤 동기화 여부, true일 경우 스크롤 타이밍에 맞춰 애니메이션 실행, 시간 적용 시 지정된 시간 만큼 지연 후 애니메이션 실행
       // markers: true, // 디버깅을 위한 마커 표시
+    },
+    about: {
+      trigger: '.about',
+      start: 'top bottom',
+      scrub: 1.8,
     },
   };
 
@@ -76,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     tl.to('.title-stroke', {
       scrollTrigger: commonScrollTrigger.header,
-      xPercent: 50,
+      yPercent: 80,
     });
 
     tl.to('.header-marq-wrapper', {
@@ -89,6 +95,18 @@ document.addEventListener('DOMContentLoaded', function () {
       rotate: -720,
     });
   }
+
+  
+
+
+function aboutAnimation(){
+  tl.from('.about-img', {
+    scrollTrigger: commonScrollTrigger.about,
+    yPercent: 80,
+  });
+}
+
+aboutAnimation();
 
   const wWidth = window.outerWidth;
 
