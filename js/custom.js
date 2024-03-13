@@ -51,6 +51,14 @@ document.addEventListener('DOMContentLoaded', function () {
       start: 'top bottom',
       scrub: 1.8,
     },
+  
+    benefits: {
+      trigger: '.benefits_lists',
+      start: 'top bottom',
+      scrub: 1.8,
+    },
+
+
   };
  // square rotate animation
 
@@ -138,8 +146,14 @@ aboutAnimation();
 
   benefits_nums.forEach((num) =>{
     const data_speed = num.getAttribute('data-speed');
-    console.log(data_speed);
-  })
+
+    tl.from(num, {
+      scrollTrigger: commonScrollTrigger.benefits,
+      x: -data_speed,
+    });
+    // console.log(1 - perseFloat(data_speed));
+  });
+ 
  }
 
  benefitsAnimation();
